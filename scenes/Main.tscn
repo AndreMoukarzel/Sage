@@ -1,0 +1,216 @@
+[gd_scene load_steps=25 format=1]
+
+[ext_resource path="res://scripts/body.gd" type="Script" id=1]
+[ext_resource path="res://resources/player/idle/idle0000.tex" type="Texture" id=2]
+[ext_resource path="res://resources/player/idle/idle0001.tex" type="Texture" id=3]
+[ext_resource path="res://resources/player/idle/idle0002.tex" type="Texture" id=4]
+[ext_resource path="res://resources/player/idle/idle0003.tex" type="Texture" id=5]
+[ext_resource path="res://resources/player/idle/idle0004.tex" type="Texture" id=6]
+[ext_resource path="res://resources/player/idle/idle0005.tex" type="Texture" id=7]
+[ext_resource path="res://resources/player/idle/idle0006.tex" type="Texture" id=8]
+[ext_resource path="res://resources/player/idle/idle0007.tex" type="Texture" id=9]
+[ext_resource path="res://resources/player/idle/idle0008.tex" type="Texture" id=10]
+[ext_resource path="res://resources/player/idle/idle0009.tex" type="Texture" id=11]
+[ext_resource path="res://resources/player/idle/idle0010.tex" type="Texture" id=12]
+[ext_resource path="res://resources/player/idle/idle0011.tex" type="Texture" id=13]
+[ext_resource path="res://resources/player/old0004.tex" type="Texture" id=14]
+[ext_resource path="res://icon.png" type="Texture" id=15]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 30.0
+height = 22.0
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ { "frames":[ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ], "loop":true, "name":"default", "speed":5.0 } ]
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "dodge"
+length = 0.1
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 12 ] }
+
+[sub_resource type="Animation" id=4]
+
+resource/name = "idle_down"
+length = 1.3
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.9, 1.1 ), "transitions":FloatArray( 1, 1, 1 ), "update":1, "values":[ 2, 0, 1 ] }
+
+[sub_resource type="Animation" id=5]
+
+resource/name = "idle_left"
+length = 1.3
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.9, 1.1 ), "transitions":FloatArray( 1, 1, 1 ), "update":1, "values":[ 5, 3, 4 ] }
+
+[sub_resource type="Animation" id=6]
+
+resource/name = "idle_right"
+length = 1.3
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.9, 1.1 ), "transitions":FloatArray( 1, 1, 1 ), "update":1, "values":[ 11, 9, 10 ] }
+
+[sub_resource type="Animation" id=7]
+
+resource/name = "idle_up"
+length = 1.3
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.9, 1.1 ), "transitions":FloatArray( 1, 1, 1 ), "update":1, "values":[ 8, 6, 7 ] }
+
+[sub_resource type="RectangleShape2D" id=8]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 80 )
+
+[sub_resource type="CircleShape2D" id=9]
+
+custom_solver_bias = 0.0
+radius = 32.0
+
+[node name="Main" type="Node"]
+
+[node name="Player" type="KinematicBody2D" parent="."]
+
+editor/display_folded = true
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 1, 10 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+__meta__ = { "_edit_group_":true }
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
+
+editor/display_folded = true
+transform/scale = Vector2( 2, 2 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 12
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/AnimatedSprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/dodge = SubResource( 3 )
+anims/idle_down = SubResource( 4 )
+anims/idle_left = SubResource( 5 )
+anims/idle_right = SubResource( 6 )
+anims/idle_up = SubResource( 7 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "idle_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+
+transform/pos = Vector2( 1, 10 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+anchor_mode = 1
+rotating = false
+current = false
+zoom = Vector2( 1, 1 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 787.812, 252.632 )
+input/pickable = false
+shapes/0/shape = SubResource( 8 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+
+shape = SubResource( 8 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+
+transform/scale = Vector2( 1, 2.5 )
+texture = ExtResource( 15 )
+
+[node name="StaticBody2D1" type="StaticBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 511.911, 405.54 )
+input/pickable = false
+shapes/0/shape = SubResource( 9 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = { "_edit_group_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D1"]
+
+shape = SubResource( 9 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D1"]
+
+texture = ExtResource( 15 )
+
+
