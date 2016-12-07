@@ -37,7 +37,7 @@ func _fixed_process(delta):
 			anim_next = "idle_up"
 		elif (Input.is_action_pressed("ui_down")):
 			direction.y = 1
-			anim_next = "idle_down"
+			anim_next = "run_down"
 		else:
 			direction.y = 0
 		
@@ -46,20 +46,34 @@ func _fixed_process(delta):
 			direction /= 1.4
 		# Manages idle animations
 		elif (direction == Vector2(0, 0)):
-			if (idle_direction.y == 1):
+			if (idle_direction.y > 0.9):
 				anim_next = "idle_down"
-			elif (idle_direction.y == -1):
+			elif (idle_direction.y < -0.9):
 				anim_next = "idle_up"
-			elif (idle_direction.x == 1):
+			elif (idle_direction.x > 0.9):
 				anim_next = "idle_right"
-			elif (idle_direction.x == -1):
+			elif (idle_direction.x < -0.9):
 				anim_next = "idle_left"
 		movement = direction * SPEED
 
 	elif (dodging):
+		var logdog = log(dodging)
+
 		dodging -= 1
 		anim_next = "dodge"
-		movement = direction * SPEED * 3
+
+		# Player has delicate control over dodge direction
+		if (Input.is_action_pressed("ui_left")):
+			direction.x -= 0.01
+		elif (Input.is_action_pressed("ui_right")):
+			direction.x += 0.01
+		if (Input.is_action_pressed("ui_up")):
+			direction.y -= 0.01
+		elif (Input.is_action_pressed("ui_down")):
+			direction.y += 0.01
+
+		if (logdog >= 0):
+			movement = direction * SPEED * logdog
 
 	elif (attacking):
 		attacking -= 1
