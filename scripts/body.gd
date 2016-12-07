@@ -44,15 +44,15 @@ func _fixed_process(delta):
 		# Slow down diagonal movement
 		if ((direction.x != 0) and (direction.y != 0)):
 			direction /= 1.4
-		# Manages idle animations
+		# Manages idle animations		
 		elif (direction == Vector2(0, 0)):
-			if (idle_direction.y > 0.9):
+			if (idle_direction.y > 0.5):
 				anim_next = "idle_down"
-			elif (idle_direction.y < -0.9):
+			elif (idle_direction.y < -0.5):
 				anim_next = "idle_up"
-			elif (idle_direction.x > 0.9):
+			elif (idle_direction.x > 0.5):
 				anim_next = "idle_right"
-			elif (idle_direction.x < -0.9):
+			elif (idle_direction.x < -0.5):
 				anim_next = "idle_left"
 		movement = direction * SPEED
 
