@@ -25,10 +25,10 @@ func _fixed_process(delta):
 	if (!dodging and !attacking):
 		if (Input.is_action_pressed("ui_left")):
 			direction.x = -1
-			anim_next = "idle_left"
+			anim_next = "run_left"
 		elif (Input.is_action_pressed("ui_right")):
 			direction.x = 1
-			anim_next = "idle_right"
+			anim_next = "run_right"
 		else:
 			direction.x = 0
 		

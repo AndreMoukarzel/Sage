@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=1]
+[gd_scene load_steps=44 format=1]
 
 [ext_resource path="res://scripts/body.gd" type="Script" id=1]
 [ext_resource path="res://resources/player/idle/idle0000.tex" type="Texture" id=2]
@@ -18,7 +18,19 @@
 [ext_resource path="res://resources/player/run/run0001.tex" type="Texture" id=16]
 [ext_resource path="res://resources/player/run/run0002.tex" type="Texture" id=17]
 [ext_resource path="res://resources/player/run/run0003.tex" type="Texture" id=18]
-[ext_resource path="res://icon.png" type="Texture" id=19]
+[ext_resource path="res://resources/player/run/run0004.tex" type="Texture" id=19]
+[ext_resource path="res://resources/player/run/run0005.tex" type="Texture" id=20]
+[ext_resource path="res://resources/player/run/run0006.tex" type="Texture" id=21]
+[ext_resource path="res://resources/player/run/run0007.tex" type="Texture" id=22]
+[ext_resource path="res://resources/player/run/run0008.tex" type="Texture" id=23]
+[ext_resource path="res://resources/player/run/run0009.tex" type="Texture" id=24]
+[ext_resource path="res://resources/player/run/run0010.tex" type="Texture" id=25]
+[ext_resource path="res://resources/player/run/run0011.tex" type="Texture" id=26]
+[ext_resource path="res://resources/player/run/run0012.tex" type="Texture" id=27]
+[ext_resource path="res://resources/player/run/run0013.tex" type="Texture" id=28]
+[ext_resource path="res://resources/player/run/run0014.tex" type="Texture" id=29]
+[ext_resource path="res://resources/player/run/run0015.tex" type="Texture" id=30]
+[ext_resource path="res://icon.png" type="Texture" id=31]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -28,7 +40,7 @@ height = 22.0
 
 [sub_resource type="SpriteFrames" id=2]
 
-animations = [ { "frames":[ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ], "loop":true, "name":"default", "speed":5.0 } ]
+animations = [ { "frames":[ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ], "loop":true, "name":"default", "speed":5.0 } ]
 
 [sub_resource type="Animation" id=3]
 
@@ -102,12 +114,36 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":1, "values":[ 13, 14, 15, 16 ] }
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="Animation" id=9]
+
+resource/name = "run_left"
+length = 1.1
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 17, 18, 19, 20, 21, 22 ] }
+
+[sub_resource type="Animation" id=10]
+
+resource/name = "run_right"
+length = 1.1
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 23, 24, 25, 26, 27, 28 ] }
+
+[sub_resource type="RectangleShape2D" id=11]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32, 80 )
 
-[sub_resource type="CircleShape2D" id=10]
+[sub_resource type="CircleShape2D" id=12]
 
 custom_solver_bias = 0.0
 radius = 32.0
@@ -131,7 +167,7 @@ __meta__ = { "_edit_group_":true }
 transform/scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "default"
-frame = 16
+frame = 24
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player/AnimatedSprite"]
 
@@ -144,6 +180,8 @@ anims/idle_left = SubResource( 5 )
 anims/idle_right = SubResource( 6 )
 anims/idle_up = SubResource( 7 )
 anims/run_down = SubResource( 8 )
+anims/run_left = SubResource( 9 )
+anims/run_right = SubResource( 10 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -180,7 +218,7 @@ drag_margin/bottom = 0.2
 editor/display_folded = true
 transform/pos = Vector2( 787.812, 252.632 )
 input/pickable = false
-shapes/0/shape = SubResource( 9 )
+shapes/0/shape = SubResource( 11 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -193,21 +231,21 @@ __meta__ = { "_edit_group_":true }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 
-shape = SubResource( 9 )
+shape = SubResource( 11 )
 trigger = false
 _update_shape_index = 0
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
 
 transform/scale = Vector2( 1, 2.5 )
-texture = ExtResource( 19 )
+texture = ExtResource( 31 )
 
 [node name="StaticBody2D1" type="StaticBody2D" parent="."]
 
 editor/display_folded = true
 transform/pos = Vector2( 511.911, 405.54 )
 input/pickable = false
-shapes/0/shape = SubResource( 10 )
+shapes/0/shape = SubResource( 12 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -220,12 +258,12 @@ __meta__ = { "_edit_group_":true }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D1"]
 
-shape = SubResource( 10 )
+shape = SubResource( 12 )
 trigger = false
 _update_shape_index = 0
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D1"]
 
-texture = ExtResource( 19 )
+texture = ExtResource( 31 )
 
 
