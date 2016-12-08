@@ -1,0 +1,327 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://resources/tilesets/marble/marble_pale.tex" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 16, 16 )
+
+[node name="Node" type="Node"]
+
+[node name="FloorSmall1" type="Sprite" parent="."]
+
+transform/pos = Vector2( 16, 16 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="FloorSmall2" type="Sprite" parent="."]
+
+transform/pos = Vector2( 16, 48 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 0, 32, 32, 32 )
+
+[node name="FloorSmall3" type="Sprite" parent="."]
+
+transform/pos = Vector2( 48, 16 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 32, 0, 32, 32 )
+
+[node name="FloorSmall4" type="Sprite" parent="."]
+
+transform/pos = Vector2( 48, 48 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 32, 32, 32, 32 )
+
+[node name="FloorCorner1" type="Sprite" parent="."]
+
+transform/pos = Vector2( 16, 80 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 0, 64, 32, 32 )
+
+[node name="FloorCorner2" type="Sprite" parent="."]
+
+transform/pos = Vector2( 48, 80 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 32, 64, 32, 32 )
+
+[node name="FloorCorner3" type="Sprite" parent="."]
+
+transform/pos = Vector2( 16, 112 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 0, 96, 32, 32 )
+
+[node name="FloorCorner4" type="Sprite" parent="."]
+
+transform/pos = Vector2( 48, 112 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 32, 96, 32, 32 )
+
+[node name="FloorCorner5" type="Sprite" parent="."]
+
+transform/pos = Vector2( 16, 144 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 0, 192, 32, 32 )
+
+[node name="FloorCorner6" type="Sprite" parent="."]
+
+transform/pos = Vector2( 48, 144 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 32, 192, 32, 32 )
+
+[node name="FloorCorner7" type="Sprite" parent="."]
+
+transform/pos = Vector2( 16, 176 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 0, 224, 32, 32 )
+
+[node name="FloorCorner8" type="Sprite" parent="."]
+
+transform/pos = Vector2( 48, 176 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 32, 224, 32, 32 )
+
+[node name="FloorExtension1" type="Sprite" parent="."]
+
+transform/pos = Vector2( 80, 16 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 0, 128, 32, 32 )
+
+[node name="FloorExtension2" type="Sprite" parent="."]
+
+transform/pos = Vector2( 112, 16 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 32, 128, 32, 32 )
+
+[node name="FloorExtension3" type="Sprite" parent="."]
+
+transform/pos = Vector2( 80, 48 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 0, 160, 32, 32 )
+
+[node name="FloorExtension4" type="Sprite" parent="."]
+
+transform/pos = Vector2( 112, 48 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 32, 160, 32, 32 )
+
+[node name="FloorExtension5" type="Sprite" parent="."]
+
+transform/pos = Vector2( 80, 80 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 0, 256, 32, 32 )
+
+[node name="FloorExtension6" type="Sprite" parent="."]
+
+transform/pos = Vector2( 112, 80 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 32, 256, 32, 32 )
+
+[node name="FloorExtension7" type="Sprite" parent="."]
+
+transform/pos = Vector2( 80, 112 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 0, 288, 32, 32 )
+
+[node name="FloorExtension8" type="Sprite" parent="."]
+
+transform/pos = Vector2( 112, 112 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 32, 288, 32, 32 )
+
+[node name="Wall1" type="Sprite" parent="."]
+
+transform/pos = Vector2( 144, 16 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 64, 0, 32, 32 )
+
+[node name="Wall2" type="Sprite" parent="."]
+
+transform/pos = Vector2( 144, 48 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 64, 32, 32, 32 )
+
+[node name="Wall3" type="Sprite" parent="."]
+
+transform/pos = Vector2( 144, 80 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 64, 64, 32, 32 )
+
+[node name="Wall4" type="Sprite" parent="."]
+
+transform/pos = Vector2( 144, 112 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 64, 96, 32, 32 )
+
+[node name="Wall5" type="Sprite" parent="."]
+
+transform/pos = Vector2( 144, 144 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 64, 128, 32, 32 )
+
+[node name="HitWall1" type="Sprite" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 176, 16 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 64, 160, 32, 32 )
+__meta__ = { "_edit_group_":true }
+
+[node name="StaticBody" type="StaticBody2D" parent="HitWall1"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitWall1/StaticBody"]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="HitWall2" type="Sprite" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 176, 48 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 64, 192, 32, 32 )
+__meta__ = { "_edit_group_":true }
+
+[node name="StaticBody" type="StaticBody2D" parent="HitWall2"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitWall2/StaticBody"]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="HitWall3" type="Sprite" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 176, 80 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 64, 224, 32, 32 )
+__meta__ = { "_edit_group_":true }
+
+[node name="StaticBody" type="StaticBody2D" parent="HitWall3"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitWall3/StaticBody"]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="HitWall4" type="Sprite" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 176, 112 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 64, 256, 32, 32 )
+__meta__ = { "_edit_group_":true }
+
+[node name="StaticBody" type="StaticBody2D" parent="HitWall4"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitWall4/StaticBody"]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="HitWall5" type="Sprite" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 176, 144 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 64, 288, 32, 32 )
+__meta__ = { "_edit_group_":true }
+
+[node name="StaticBody" type="StaticBody2D" parent="HitWall5"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitWall5/StaticBody"]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+

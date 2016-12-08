@@ -1,36 +1,38 @@
-[gd_scene load_steps=44 format=1]
+[gd_scene load_steps=46 format=1]
 
-[ext_resource path="res://scripts/body.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://resources/player/idle/idle0000.tex" type="Texture" id=3]
-[ext_resource path="res://resources/player/idle/idle0001.tex" type="Texture" id=4]
-[ext_resource path="res://resources/player/idle/idle0002.tex" type="Texture" id=5]
-[ext_resource path="res://resources/player/idle/idle0003.tex" type="Texture" id=6]
-[ext_resource path="res://resources/player/idle/idle0004.tex" type="Texture" id=7]
-[ext_resource path="res://resources/player/idle/idle0005.tex" type="Texture" id=8]
-[ext_resource path="res://resources/player/idle/idle0006.tex" type="Texture" id=9]
-[ext_resource path="res://resources/player/idle/idle0007.tex" type="Texture" id=10]
-[ext_resource path="res://resources/player/idle/idle0008.tex" type="Texture" id=11]
-[ext_resource path="res://resources/player/idle/idle0009.tex" type="Texture" id=12]
-[ext_resource path="res://resources/player/idle/idle0010.tex" type="Texture" id=13]
-[ext_resource path="res://resources/player/idle/idle0011.tex" type="Texture" id=14]
-[ext_resource path="res://resources/player/old0004.tex" type="Texture" id=15]
-[ext_resource path="res://resources/player/run/run0000.tex" type="Texture" id=16]
-[ext_resource path="res://resources/player/run/run0001.tex" type="Texture" id=17]
-[ext_resource path="res://resources/player/run/run0002.tex" type="Texture" id=18]
-[ext_resource path="res://resources/player/run/run0003.tex" type="Texture" id=19]
-[ext_resource path="res://resources/player/run/run0004.tex" type="Texture" id=20]
-[ext_resource path="res://resources/player/run/run0005.tex" type="Texture" id=21]
-[ext_resource path="res://resources/player/run/run0006.tex" type="Texture" id=22]
-[ext_resource path="res://resources/player/run/run0007.tex" type="Texture" id=23]
-[ext_resource path="res://resources/player/run/run0008.tex" type="Texture" id=24]
-[ext_resource path="res://resources/player/run/run0009.tex" type="Texture" id=25]
-[ext_resource path="res://resources/player/run/run0010.tex" type="Texture" id=26]
-[ext_resource path="res://resources/player/run/run0011.tex" type="Texture" id=27]
-[ext_resource path="res://resources/player/run/run0012.tex" type="Texture" id=28]
-[ext_resource path="res://resources/player/run/run0013.tex" type="Texture" id=29]
-[ext_resource path="res://resources/player/run/run0014.tex" type="Texture" id=30]
-[ext_resource path="res://resources/player/run/run0015.tex" type="Texture" id=31]
+[ext_resource path="res://resources/tilesets/marble/marble_pale.xml" type="TileSet" id=1]
+[ext_resource path="res://scripts/body.gd" type="Script" id=2]
+[ext_resource path="res://resources/particles/Smoke0.tex" type="Texture" id=3]
+[ext_resource path="res://resources/player/idle/idle0000.tex" type="Texture" id=4]
+[ext_resource path="res://resources/player/idle/idle0001.tex" type="Texture" id=5]
+[ext_resource path="res://resources/player/idle/idle0002.tex" type="Texture" id=6]
+[ext_resource path="res://resources/player/idle/idle0003.tex" type="Texture" id=7]
+[ext_resource path="res://resources/player/idle/idle0004.tex" type="Texture" id=8]
+[ext_resource path="res://resources/player/idle/idle0005.tex" type="Texture" id=9]
+[ext_resource path="res://resources/player/idle/idle0006.tex" type="Texture" id=10]
+[ext_resource path="res://resources/player/idle/idle0007.tex" type="Texture" id=11]
+[ext_resource path="res://resources/player/idle/idle0008.tex" type="Texture" id=12]
+[ext_resource path="res://resources/player/idle/idle0009.tex" type="Texture" id=13]
+[ext_resource path="res://resources/player/idle/idle0010.tex" type="Texture" id=14]
+[ext_resource path="res://resources/player/idle/idle0011.tex" type="Texture" id=15]
+[ext_resource path="res://resources/player/old0004.tex" type="Texture" id=16]
+[ext_resource path="res://resources/player/run/run0000.tex" type="Texture" id=17]
+[ext_resource path="res://resources/player/run/run0001.tex" type="Texture" id=18]
+[ext_resource path="res://resources/player/run/run0002.tex" type="Texture" id=19]
+[ext_resource path="res://resources/player/run/run0003.tex" type="Texture" id=20]
+[ext_resource path="res://resources/player/run/run0004.tex" type="Texture" id=21]
+[ext_resource path="res://resources/player/run/run0005.tex" type="Texture" id=22]
+[ext_resource path="res://resources/player/run/run0006.tex" type="Texture" id=23]
+[ext_resource path="res://resources/player/run/run0007.tex" type="Texture" id=24]
+[ext_resource path="res://resources/player/run/run0008.tex" type="Texture" id=25]
+[ext_resource path="res://resources/player/run/run0009.tex" type="Texture" id=26]
+[ext_resource path="res://resources/player/run/run0010.tex" type="Texture" id=27]
+[ext_resource path="res://resources/player/run/run0011.tex" type="Texture" id=28]
+[ext_resource path="res://resources/player/run/run0012.tex" type="Texture" id=29]
+[ext_resource path="res://resources/player/run/run0013.tex" type="Texture" id=30]
+[ext_resource path="res://resources/player/run/run0014.tex" type="Texture" id=31]
+[ext_resource path="res://resources/player/run/run0015.tex" type="Texture" id=32]
+[ext_resource path="res://icon.png" type="Texture" id=33]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -40,7 +42,7 @@ height = 22.0
 
 [sub_resource type="SpriteFrames" id=2]
 
-animations = [ { "frames":[ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ], "loop":true, "name":"default", "speed":5.0 } ]
+animations = [ { "frames":[ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ) ], "loop":true, "name":"default", "speed":5.0 } ]
 
 [sub_resource type="Animation" id=3]
 
@@ -150,8 +152,51 @@ radius = 32.0
 
 [node name="Main" type="Node"]
 
+[node name="TileMap" type="TileMap" parent="."]
+
+transform/scale = Vector2( 2, 2 )
+mode = 0
+tile_set = ExtResource( 1 )
+cell/size = Vector2( 32, 32 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -196609, 29, -262144, 29, -262143, 29, -262142, 29, -262141, 29, -262140, 29, -262139, 29, -262138, 29, -262137, 29, -262136, 29, -262135, 29, -262134, 29, -262133, 29, -262132, 29, -262131, 29, -262130, 29, -262129, 29, -262128, 29, -131073, 29, -196608, 29, -196607, 29, -196606, 29, -196605, 29, -196604, 29, -196603, 29, -196602, 29, -196601, 29, -196600, 29, -196599, 29, -196598, 29, -196597, 29, -196596, 29, -196595, 29, -196594, 29, -196593, 29, -196592, 29, -65537, 27, -131072, 23, -131071, 23, -131070, 23, -131069, 23, -131068, 23, -131067, 23, -131066, 23, -131065, 23, -131064, 23, -131063, 23, -131062, 23, -131061, 23, -131060, 23, -131059, 23, -131058, 23, -131057, 23, -131056, 27, -1, 27, -65536, 29, -65535, 29, -65534, 28, -65533, 29, -65532, 29, -65531, 29, -65530, 29, -65529, 28, -65528, 28, -65527, 29, -65526, 29, -65525, 29, -65524, 29, -65523, 28, -65522, 29, -65521, 29, -65520, 27, 65535, 27, 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 1, 8, 0, 9, 0, 10, 0, 11, 1, 12, 0, 13, 0, 14, 0, 15, 0, 16, 27, 131071, 27, 65536, 0, 65537, 1, 65538, 4, 65539, 16, 65540, 16, 65541, 9, 65542, 0, 65543, 0, 65544, 0, 65545, 4, 65546, 12, 65547, 12, 65548, 5, 65549, 0, 65550, 0, 65551, 0, 65552, 27, 196607, 27, 131072, 0, 131073, 0, 131074, 15, 131075, 2, 131076, 3, 131077, 13, 131078, 0, 131079, 0, 131080, 0, 131081, 15, 131082, 2, 131083, 2, 131084, 13, 131085, 0, 131086, 1, 131087, 0, 131088, 27, 262143, 27, 196608, 0, 196609, 0, 196610, 19, 196611, 2, 196612, 2, 196613, 13, 196614, 0, 196615, 0, 196616, 0, 196617, 15, 196618, 2, 196619, 2, 196620, 13, 196621, 0, 196622, 0, 196623, 0, 196624, 27, 327679, 27, 262144, 0, 262145, 1, 262146, 10, 262147, 18, 262148, 14, 262149, 7, 262150, 0, 262151, 0, 262152, 0, 262153, 6, 262154, 14, 262155, 14, 262156, 7, 262157, 0, 262158, 0, 262159, 0, 262160, 27, 393215, 27, 327680, 0, 327681, 0, 327682, 0, 327683, 0, 327684, 0, 327685, 0, 327686, 0, 327687, 0, 327688, 0, 327689, 0, 327690, 0, 327691, 0, 327692, 0, 327693, 0, 327694, 0, 327695, 0, 327696, 27, 458751, 27, 393216, 0, 393217, 0, 393218, 0, 393219, 0, 393220, 0, 393221, 1, 393222, 0, 393223, 0, 393224, 0, 393225, 0, 393226, 1, 393227, 0, 393228, 0, 393229, 1, 393230, 0, 393231, 0, 393232, 27, 524287, 27, 458752, 0, 458753, 0, 458754, 0, 458755, 0, 458756, 0, 458757, 0, 458758, 0, 458759, 0, 458760, 1, 458761, 0, 458762, 0, 458763, 0, 458764, 0, 458765, 0, 458766, 0, 458767, 0, 458768, 27, 589823, 27, 524288, 0, 524289, 1, 524290, 0, 524291, 0, 524292, 0, 524293, 0, 524294, 0, 524295, 0, 524296, 0, 524297, 0, 524298, 1, 524299, 0, 524300, 0, 524301, 0, 524302, 1, 524303, 0, 524304, 27, 655359, 27, 589824, 0, 589825, 0, 589826, 0, 589827, 1, 589828, 0, 589829, 1, 589830, 0, 589831, 0, 589832, 0, 589833, 0, 589834, 0, 589835, 0, 589836, 0, 589837, 0, 589838, 0, 589839, 0, 589840, 27, 720895, 21, 655376, 22, 851967, 29, 786432, 29, 786433, 29, 786434, 29, 786435, 29, 786436, 29, 786437, 29, 786438, 29, 786439, 29, 786440, 29, 786441, 29, 786442, 29, 786443, 29, 786444, 29, 786445, 29, 786446, 29, 786447, 29, 786448, 29 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="TileMapOver" type="TileMap" parent="."]
+
+transform/scale = Vector2( 2, 2 )
+z/z = 1
+mode = 0
+tile_set = ExtResource( 1 )
+cell/size = Vector2( 32, 32 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 655360, 23, 655361, 23, 655362, 23, 655363, 23, 655364, 23, 655365, 23, 655366, 23, 655367, 23, 655368, 23, 655369, 23, 655370, 23, 655371, 23, 655372, 23, 655373, 23, 655374, 23, 655375, 23, 786431, 29, 720896, 29, 720897, 29, 720898, 28, 720899, 29, 720900, 29, 720901, 29, 720902, 29, 720903, 28, 720904, 28, 720905, 29, 720906, 29, 720907, 29, 720908, 29, 720909, 28, 720910, 29, 720911, 29, 720912, 29 )
+__meta__ = { "_edit_lock_":true }
+
 [node name="Player" type="KinematicBody2D" parent="."]
 
+editor/display_folded = true
+transform/pos = Vector2( 97.9472, 80.2623 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 1, 10 )
@@ -159,7 +204,7 @@ shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
-script/script = ExtResource( 1 )
+script/script = ExtResource( 2 )
 __meta__ = { "_edit_group_":true }
 
 [node name="RunParticles" type="Particles2D" parent="Player"]
@@ -169,7 +214,7 @@ config/lifetime = 0.5
 config/time_scale = 0.8
 config/offset = Vector2( 0, 40 )
 config/local_space = false
-config/texture = ExtResource( 2 )
+config/texture = ExtResource( 3 )
 params/direction = 180.0
 params/spread = 30.0
 params/linear_velocity = 50.0
@@ -268,7 +313,7 @@ _update_shape_index = 0
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
 
 transform/scale = Vector2( 1, 2.5 )
-texture = ExtResource( 2 )
+texture = ExtResource( 33 )
 
 [node name="StaticBody2D1" type="StaticBody2D" parent="."]
 
@@ -294,6 +339,6 @@ _update_shape_index = 0
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D1"]
 
-texture = ExtResource( 2 )
+texture = ExtResource( 33 )
 
 
