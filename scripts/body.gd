@@ -34,7 +34,7 @@ func _fixed_process(delta):
 		
 		if (Input.is_action_pressed("ui_up")):
 			direction.y = -1
-			anim_next = "idle_up"
+			anim_next = "run_up"
 		elif (Input.is_action_pressed("ui_down")):
 			direction.y = 1
 			anim_next = "run_down"
