@@ -1,7 +1,7 @@
 
 extends RigidBody2D
 
-const SPEED = 4
+const SPEED = 230
 
 var attacking = 0
 var dodging = 0
@@ -13,6 +13,8 @@ var anim_next = ""
 
 
 func _ready():
+	connect("body_enter", self, "bounce")
+	add_to_group("bouncer")
 	set_fixed_process(true)
 	set_process_input(true)
 
@@ -78,16 +80,10 @@ func _fixed_process(delta):
 	elif (attacking):
 		attacking -= 1
 
-	var current_speed = get_travel()
+	var current_speed = get_linear_velocity()
 	current_speed.x = lerp(current_speed.x, movement.x, 8 * delta)
 	current_speed.y = lerp(current_speed.y, movement.y, 8 * delta)
-
-	movement = move(current_speed)
-	# Fixes "sticky walls"
-	if (is_colliding()):
-		var n = get_collision_normal()
-		movement = n.slide(movement)
-		move(movement)
+	set_linear_velocity(current_speed)
 
 	if (anim_next != anim):
 		anim = anim_next
@@ -101,3 +97,10 @@ func _input(event):
 	elif (event.is_action_pressed("attack")):
 		if (!dodging):
 			attacking = 10
+
+
+func bounce(body):
+	var bounce = Vector2(0, 0)
+
+	bounce = -get_linear_velocity()
+	set_linear_velocity(bounce)

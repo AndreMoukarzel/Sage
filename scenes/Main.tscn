@@ -1,7 +1,7 @@
-[gd_scene load_steps=51 format=1]
+[gd_scene load_steps=54 format=1]
 
 [ext_resource path="res://resources/tilesets/marble/marble_pale.xml" type="TileSet" id=1]
-[ext_resource path="res://scripts/body.gd" type="Script" id=2]
+[ext_resource path="res://scripts/player.gd" type="Script" id=2]
 [ext_resource path="res://resources/particles/Smoke0.tex" type="Texture" id=3]
 [ext_resource path="res://resources/player/idle/idle0000.tex" type="Texture" id=4]
 [ext_resource path="res://resources/player/idle/idle0001.tex" type="Texture" id=5]
@@ -36,12 +36,13 @@
 [ext_resource path="res://resources/player/run/run0017.tex" type="Texture" id=34]
 [ext_resource path="res://resources/player/run/run0018.tex" type="Texture" id=35]
 [ext_resource path="res://resources/player/run/run0019.tex" type="Texture" id=36]
-[ext_resource path="res://icon.png" type="Texture" id=37]
+[ext_resource path="res://scripts/cat.gd" type="Script" id=37]
+[ext_resource path="res://icon.png" type="Texture" id=38]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 30.0
+radius = 20.0
 height = 22.0
 
 [sub_resource type="SpriteFrames" id=2]
@@ -155,6 +156,15 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":1, "values":[ 23, 24, 25, 26 ] }
 
+[sub_resource type="RectangleShape2D" id=14]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[sub_resource type="SpriteFrames" id=15]
+
+animations = [ { "frames":[ ExtResource( 38 ) ], "loop":true, "name":"default", "speed":5.0 } ]
+
 [sub_resource type="RectangleShape2D" id=12]
 
 custom_solver_bias = 0.0
@@ -179,7 +189,7 @@ cell/half_offset = 2
 cell/tile_origin = 0
 cell/y_sort = false
 collision/use_kinematic = false
-collision/friction = 1.0
+collision/friction = 0.0
 collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
@@ -200,7 +210,7 @@ cell/half_offset = 2
 cell/tile_origin = 0
 cell/y_sort = false
 collision/use_kinematic = false
-collision/friction = 1.0
+collision/friction = 0.0
 collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
@@ -208,7 +218,7 @@ occluder/light_mask = 1
 tile_data = IntArray( 655360, 23, 655361, 23, 655362, 23, 655363, 23, 655364, 23, 655365, 23, 655366, 23, 655367, 23, 655368, 23, 655369, 23, 655370, 23, 655371, 23, 655372, 23, 655373, 23, 655374, 23, 655375, 23, 786431, 29, 720896, 29, 720897, 29, 720898, 28, 720899, 29, 720900, 29, 720901, 29, 720902, 29, 720903, 28, 720904, 28, 720905, 29, 720906, 29, 720907, 29, 720908, 29, 720909, 28, 720910, 29, 720911, 29, 720912, 29 )
 __meta__ = { "_edit_lock_":true }
 
-[node name="Player" type="KinematicBody2D" parent="."]
+[node name="Player" type="RigidBody2D" parent="."]
 
 editor/display_folded = true
 transform/pos = Vector2( 97.9472, 80.2623 )
@@ -218,7 +228,21 @@ shapes/0/transform = Matrix32( 1, 0, 0, 1, 1, 10 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
-collision/margin = 0.08
+mode = 2
+mass = 10.0
+friction = 0.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
 script/script = ExtResource( 2 )
 __meta__ = { "_edit_group_":true }
 
@@ -303,6 +327,45 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 
+[node name="Cat" type="RigidBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 509.481, 167.315 )
+input/pickable = false
+shapes/0/shape = SubResource( 14 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 2
+mass = 3.0
+friction = 0.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+script/script = ExtResource( 37 )
+__meta__ = { "_edit_group_":true }
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Cat"]
+
+frames = SubResource( 15 )
+animation = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cat"]
+
+shape = SubResource( 14 )
+trigger = false
+_update_shape_index = 0
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 editor/display_folded = true
@@ -328,7 +391,7 @@ _update_shape_index = 0
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
 
 transform/scale = Vector2( 1, 2.5 )
-texture = ExtResource( 37 )
+texture = ExtResource( 38 )
 
 [node name="StaticBody2D1" type="StaticBody2D" parent="."]
 
@@ -354,6 +417,6 @@ _update_shape_index = 0
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D1"]
 
-texture = ExtResource( 37 )
+texture = ExtResource( 38 )
 
 
