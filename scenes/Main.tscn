@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=1]
+[gd_scene load_steps=64 format=1]
 
 [ext_resource path="res://resources/tilesets/marble/marble_pale.xml" type="TileSet" id=1]
 [ext_resource path="res://scripts/player.gd" type="Script" id=2]
@@ -37,7 +37,16 @@
 [ext_resource path="res://resources/player/run/run0018.tex" type="Texture" id=35]
 [ext_resource path="res://resources/player/run/run0019.tex" type="Texture" id=36]
 [ext_resource path="res://scripts/cat.gd" type="Script" id=37]
-[ext_resource path="res://icon.png" type="Texture" id=38]
+[ext_resource path="res://resources/enemies/cat/cat0000.tex" type="Texture" id=38]
+[ext_resource path="res://resources/enemies/cat/cat0001.tex" type="Texture" id=39]
+[ext_resource path="res://resources/enemies/cat/cat0002.tex" type="Texture" id=40]
+[ext_resource path="res://resources/enemies/cat/cat0003.tex" type="Texture" id=41]
+[ext_resource path="res://resources/enemies/cat/cat0004.tex" type="Texture" id=42]
+[ext_resource path="res://resources/enemies/cat/cat0005.tex" type="Texture" id=43]
+[ext_resource path="res://resources/enemies/cat/cat0006.tex" type="Texture" id=44]
+[ext_resource path="res://resources/enemies/cat/cat0007.tex" type="Texture" id=45]
+[ext_resource path="res://resources/enemies/cat/cat0008.tex" type="Texture" id=46]
+[ext_resource path="res://icon.png" type="Texture" id=47]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -156,21 +165,33 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":1, "values":[ 23, 24, 25, 26 ] }
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=12]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[sub_resource type="SpriteFrames" id=15]
+[sub_resource type="SpriteFrames" id=13]
 
-animations = [ { "frames":[ ExtResource( 38 ) ], "loop":true, "name":"default", "speed":5.0 } ]
+animations = [ { "frames":[ ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ) ], "loop":true, "name":"default", "speed":5.0 } ]
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="Animation" id=14]
+
+resource/name = "idle"
+length = 0.8
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.3, 0.6 ), "transitions":FloatArray( 1, 1, 1 ), "update":1, "values":[ 0, 1, 2 ] }
+
+[sub_resource type="RectangleShape2D" id=15]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32, 80 )
 
-[sub_resource type="CircleShape2D" id=13]
+[sub_resource type="CircleShape2D" id=16]
 
 custom_solver_bias = 0.0
 radius = 32.0
@@ -329,10 +350,9 @@ drag_margin/bottom = 0.2
 
 [node name="Cat" type="RigidBody2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 509.481, 167.315 )
 input/pickable = false
-shapes/0/shape = SubResource( 14 )
+shapes/0/shape = SubResource( 12 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -357,12 +377,25 @@ __meta__ = { "_edit_group_":true }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Cat"]
 
-frames = SubResource( 15 )
+editor/display_folded = true
+transform/scale = Vector2( 2, 2 )
+frames = SubResource( 13 )
 animation = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cat/AnimatedSprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/idle = SubResource( 14 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cat"]
 
-shape = SubResource( 14 )
+shape = SubResource( 12 )
 trigger = false
 _update_shape_index = 0
 
@@ -371,7 +404,7 @@ _update_shape_index = 0
 editor/display_folded = true
 transform/pos = Vector2( 787.812, 252.632 )
 input/pickable = false
-shapes/0/shape = SubResource( 12 )
+shapes/0/shape = SubResource( 15 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -384,21 +417,21 @@ __meta__ = { "_edit_group_":true }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 
-shape = SubResource( 12 )
+shape = SubResource( 15 )
 trigger = false
 _update_shape_index = 0
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
 
 transform/scale = Vector2( 1, 2.5 )
-texture = ExtResource( 38 )
+texture = ExtResource( 47 )
 
 [node name="StaticBody2D1" type="StaticBody2D" parent="."]
 
 editor/display_folded = true
 transform/pos = Vector2( 511.911, 405.54 )
 input/pickable = false
-shapes/0/shape = SubResource( 13 )
+shapes/0/shape = SubResource( 16 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -411,12 +444,12 @@ __meta__ = { "_edit_group_":true }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D1"]
 
-shape = SubResource( 13 )
+shape = SubResource( 16 )
 trigger = false
 _update_shape_index = 0
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D1"]
 
-texture = ExtResource( 38 )
+texture = ExtResource( 47 )
 
 
